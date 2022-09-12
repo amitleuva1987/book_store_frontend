@@ -1,6 +1,6 @@
 ## How to install
 
-Frontend is build up using vue 2.6 with Nuxt framework
+Frontend is build up using vue 2.6, bootstrap with Nuxt framework
 
 ```bash
 # clone repository
