@@ -14,10 +14,11 @@
             : `http://localhost/api/get_image/${product.id}`
         "
         fluid-grow
-        style="max-height: 350px; object-fit: cover"
+        class="product-image"
         alt="Fluid image"
       ></b-img-lazy>
     </div>
+
     <div class="col-md-6">
       <h2>{{ product.title }}</h2>
       <p class="font-weight-bold">Author : {{ product.author }}</p>
@@ -64,14 +65,17 @@ export default {
       ],
     };
   },
+
   mounted() {
     this.get_product();
   },
+
   head() {
     return {
       title: this.product.title + " | Packt",
     };
   },
+
   methods: {
     async get_product() {
       try {
@@ -87,3 +91,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.product-image {
+  max-height: 350px;
+  object-fit: cover;
+}
+</style>
