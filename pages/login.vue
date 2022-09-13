@@ -1,7 +1,7 @@
 <template>
-  <div class="col-md-4 mx-auto mt-5" style="height: 420px">
+  <div class="col-md-4 mx-auto mt-5 layout-height">
     <h4 class="text-center">Login with Packt</h4>
-    <b-form @submit="onSubmit" @reset="onReset">
+    <b-form @submit="onSubmit">
       <b-form-group
         id="input-group-1"
         label="Email address:"
@@ -16,7 +16,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-2" label="Your Name:" label-for="input-2">
+      <b-form-group id="input-group-2" label="Password:" label-for="input-2">
         <b-form-input
           id="input-2"
           v-model="password"
@@ -65,3 +65,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.layout-height {
+  height: 420px;
+}
+</style>
