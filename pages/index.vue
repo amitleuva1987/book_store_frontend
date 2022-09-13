@@ -3,21 +3,20 @@
     <div class="row mt-4">
       <Search />
     </div>
-    <div
-      class="text-center mt-5 pt-5"
-      v-if="loading"
-      style="height: 100vh; overflow: auto"
-    >
+
+    <div class="text-center mt-5 pt-5 custom-spinner" v-if="loading">
       <b-spinner
         variant="primary"
-        style="width: 5rem; height: 5rem"
+        class="spinner-size"
         label="Text Centered"
       ></b-spinner>
     </div>
+
     <div class="row" v-else>
       <div class="col-md-4" v-for="product in products" :key="product.id">
         <Product :product="product" />
       </div>
+
       <div class="col-md-12">
         <b-pagination
           v-model="currentPage"
@@ -74,3 +73,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.custom-spinner {
+  height: 100vh;
+  overflow: auto;
+}
+.spinner-size {
+  width: 5rem;
+  height: 5rem;
+}
+</style>
