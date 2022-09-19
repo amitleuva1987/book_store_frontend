@@ -1,6 +1,7 @@
 <template>
   <div class="col-md-4 mx-auto mt-5 layout-height">
     <h4 class="text-center">Login with Packt</h4>
+    <p class="text-danger">{{ this.error }}</p>
     <b-form @submit="onSubmit">
       <b-form-group
         id="input-group-1"
@@ -25,7 +26,6 @@
           required
         ></b-form-input>
       </b-form-group>
-
       <b-button type="submit" variant="primary" class="block">Login</b-button>
     </b-form>
   </div>
@@ -39,6 +39,7 @@ export default {
     return {
       email: "",
       password: "",
+      error: "",
     };
   },
   methods: {
@@ -52,8 +53,8 @@ export default {
           },
         })
         .then(() => this.$router.push("/admin/product"))
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          this.error = "Invalid Credentials!";
         });
     },
     onReset(event) {
