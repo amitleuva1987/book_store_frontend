@@ -197,11 +197,10 @@ export default {
       formData.append("description", this.product.description);
 
       try {
-        await this.$axios
-          .$post("/api/update_product/" + this.$route.params.id, formData)
-          .then((response) => {
-            console.log(response);
-          });
+        await this.$axios.$post(
+          "/api/update_product/" + this.$route.params.id,
+          formData
+        );
         this.loading = false;
         this.makeToast("success", "Book updated successfully!");
         setTimeout(() => {
