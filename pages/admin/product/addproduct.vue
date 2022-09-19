@@ -81,7 +81,9 @@
               <b-form-datepicker
                 id="input-6"
                 v-model="form.published"
+                :max="maxDate"
                 class="mb-2"
+                required
               ></b-form-datepicker>
             </b-form-group>
           </div>
@@ -90,13 +92,6 @@
         <div class="row">
           <div class="col-md-4">
             <b-form-group id="input-group-7" label="Image:" label-for="input-7">
-              <!-- <b-form-input
-                id="input-7"
-                v-model="form.image"
-                type="text"
-                placeholder="Enter image"
-                required
-              ></b-form-input> -->
               <b-form-file
                 id="input-7"
                 accept="image/jpeg, image/png, image/webp"
@@ -122,6 +117,7 @@
                 placeholder="Enter description..."
                 rows="3"
                 max-rows="6"
+                required
               ></b-form-textarea>
             </b-form-group>
           </div>
@@ -138,9 +134,6 @@
         >
         <b-button type="reset" variant="danger">Reset</b-button>
       </b-form>
-      <b-card class="mt-3" header="Form Data Result">
-        <pre class="m-0">{{ form }}</pre>
-      </b-card>
     </div>
   </div>
 </template>
@@ -174,6 +167,7 @@ export default {
       },
       file1: null,
       loading: false,
+      maxDate: new Date(),
     };
   },
 
