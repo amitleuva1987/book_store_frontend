@@ -9,10 +9,12 @@
         ><button class="btn btn-primary">Add Book</button></NuxtLink
       >
     </div>
+
     <div class="col-md-6">
       <b-input-group>
         <b-form-input v-model="filter" placeholder="Search Book...">
         </b-form-input>
+
         <b-input-group-append>
           <b-button @click="clearsearch">Clear</b-button>
         </b-input-group-append>
@@ -38,6 +40,7 @@
           | <a href="#" @click="showConfirmDelete(data.item.id)">Delete</a>
         </template>
       </b-table>
+
       <b-pagination
         v-model="currentPage"
         :total-rows="totalRows"
@@ -97,9 +100,11 @@ export default {
         this.loading = false;
       }
     },
+
     clearsearch() {
       this.filter = "";
     },
+
     changePagination(records, totalRecords) {
       this.totalRows = totalRecords;
     },
