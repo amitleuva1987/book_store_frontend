@@ -28,7 +28,7 @@
       </b-input-group>
     </div>
 
-    <ul class="list-group col-xs-12 col-sm-6 mx-auto">
+    <ul class="list-group col-xs-12 col-sm-6 mx-auto" v-if="!emptyResult">
       <li
         v-for="product in searchResults"
         :key="product.id"
@@ -53,6 +53,9 @@
         </p>
       </li>
     </ul>
+    <ul class="list-group col-xs-12 col-sm-6 mx-auto" v-else>
+      <li class="list-group-item ml-3"><p>No resuts found</p></li>
+    </ul>
   </div>
 </template>
 
@@ -63,6 +66,7 @@ export default {
       searchText: "",
       searchResults: [],
       searchFilter: "",
+      emptyResult: false,
     };
   },
   methods: {
@@ -73,6 +77,11 @@ export default {
           filter: this.searchFilter,
         });
         this.searchResults = response.data;
+        if (this.searchResults.length == 0) {
+          this.emptyResult = true;
+        } else {
+          this.emptyResult = false;
+        }
       } else {
         this.searchResults = [];
       }
