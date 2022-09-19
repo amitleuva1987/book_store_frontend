@@ -22,8 +22,8 @@
         <span class="font-weight-bold">Genre: </span>{{ product.genre }}
       </p>
       <p>
-        <span class="font-weight-bold">Publisher :</span>
-        {{ product.publisher }}
+        <span class="font-weight-bold">Published Date :</span>
+        {{ product.published }}
       </p>
     </div>
   </div>
